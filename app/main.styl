@@ -1,8 +1,20 @@
+font-family-playfair = 'Playfair Display', serif
+font-family-lato = 'Lato', sans-serif
+header-height = 110px
+footer-height = 50px
+nav-button-height = 250px
+
 *
   box-sizing border-box
 
 p
   margin 0
+
+a
+  text-decoration none
+
+  &:visited
+    color: inherit
 
 .clearfix
   &:after
@@ -13,87 +25,55 @@ p
     clear both
     height 0
 
-.container
-  width 1080px
-  margin 0 auto
-
 html, body
   width 100%
   height 100%
-  
-body
-  background black
+  font-size 16px
 
-.backgrounds-container
-  z-index -1
-  position fixed
-  top 0
-  left 0
-  right 0
-  bottom 0
+.header
+  width 100%
+  height 110px
 
-  opacity 0
+  background green
 
-  transition opacity 250ms ease
-
-  &.loaded
-    opacity 1
-
-  .background-holder
-    position: absolute
-    left 0
-    right 0
-    top 0
-    bottom 0
-
-    background-size cover
-    background-repeat no-repeat
-    background-position top center
-
-    &.background-holder-1
-      background-image url(/images/yuna1.jpg)
-
-    &.background-holder-2
-      opacity: 0
-      background-image url(/images/yuna2.jpg)
-
-.intro-title
-  padding-top: calc(35% - 110px);
-  color #fff
-
-  &.show
-    span
-      opacity 1
-
-  p
-    clear both
-  
-  span
-    float left
-    text-transform uppercase
-    background-color #0a0a0a
-    font-weight bold
-    letter-spacing initial
-    opacity 0
-    font-size 3em
-    transition opacity 1000ms ease-out
-
-.main-title
+.content
   overflow hidden
-  margin 0
-  padding 15px 0 0 30px
+  width 100%
+  min-height 600px
+  height "calc(100% - %s)" % (header-height  + footer-height)
 
-  color #fff
+  .part
+    float left
+    width 50%
+    height 100%
 
-  text-transform uppercase
-  font-size 14px
-  opacity 0
-  transform translateY(-10px)
-  transition 150ms ease-out
+    nav
+      position relative
+      top 50%
+      transform translateY(-50%)
 
-  &.show
-    opacity 1
-    transform translateY(0)
+      a
+        display inline-block
+        width 150px
+        height nav-button-height
+        font-family font-family-playfair
+        font-style italic
+        font-size 1.5em
+        text-align center
+        color #fff
 
-  .firstname
-    font-size 16px
+    &.content-left
+      nav
+        float right
+        background blue
+
+    &.content-right
+      nav
+        float left
+        background red
+
+.footer
+  width 100%
+  height 50px
+
+  background orange

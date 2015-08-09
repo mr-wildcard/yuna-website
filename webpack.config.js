@@ -8,7 +8,8 @@ var config = {
 
     // Makes sure errors in console map to the correct file
     // and line number
-    devtool: 'eval',
+    context: __dirname,
+    devtool: 'eval-source-map',
     entry: [
 
         // For hot style updates
@@ -55,7 +56,6 @@ var config = {
                 test: /\.css/,
                 loader: 'style!css'
             }
-
         ]
     },
 

@@ -50,11 +50,7 @@ var config = {
             // expand with less-loader etc.
             {
                 test: /\.styl/,
-                loader: 'style!css!stylus'
-            },
-            {
-                test: /\.css/,
-                loader: 'style!css'
+                loader: 'css!stylus'
             }
         ]
     },

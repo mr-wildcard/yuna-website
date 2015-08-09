@@ -48,7 +48,11 @@ var config = {
             // Let us also add the style-loader and css-loader, which you can
             // expand with less-loader etc.
             {
-                test: /\.css$/,
+                test: /\.styl/,
+                loader: 'style!css!stylus'
+            },
+            {
+                test: /\.css/,
                 loader: 'style!css'
             }
 

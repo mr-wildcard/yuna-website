@@ -1,12 +1,43 @@
+*
+  box-sizing border-box
+
+p
+  margin 0
+
+.clearfix
+  &:after
+    visibility hidden
+    display block
+    font-size 0
+    content " "
+    clear both
+    height 0
+
+.container
+  width 1080px
+  margin 0 auto
+
+html, body
+  width 100%
+  height 100%
+  
 body
   background black
 
-.background
+.backgrounds-container
+  z-index -1
   position fixed
   top 0
   left 0
   right 0
   bottom 0
+
+  opacity 0
+
+  transition opacity 250ms ease
+
+  &.loaded
+    opacity 1
 
   .background-holder
     position: absolute
@@ -25,3 +56,44 @@ body
     &.background-holder-2
       opacity: 0
       background-image url(/images/yuna2.jpg)
+
+.intro-title
+  padding-top: calc(35% - 110px);
+  color #fff
+
+  &.show
+    span
+      opacity 1
+
+  p
+    clear both
+  
+  span
+    float left
+    text-transform uppercase
+    background-color #0a0a0a
+    font-weight bold
+    letter-spacing initial
+    opacity 0
+    font-size 3em
+    transition opacity 1000ms ease-out
+
+.main-title
+  overflow hidden
+  margin 0
+  padding 15px 0 0 30px
+
+  color #fff
+
+  text-transform uppercase
+  font-size 14px
+  opacity 0
+  transform translateY(-10px)
+  transition 150ms ease-out
+
+  &.show
+    opacity 1
+    transform translateY(0)
+
+  .firstname
+    font-size 16px

@@ -41,13 +41,22 @@ html, body
   width 100%
   min-height 600px
   height "calc(100% - %s)" % (header-height  + footer-height)
+  transform-style preserve-3d
+
+  div
+    height 100%
 
   .part
+    overflow hidden
     float left
     width 50%
     height 100%
 
     transform-style preserve-3d
+    transform skew(-10deg)
+
+    .rotate
+      transform skew(10deg)
 
     nav
       position relative
@@ -56,7 +65,7 @@ html, body
 
       a
         display inline-block
-        width 150px
+        width 200px
         height nav-button-height
         font-family font-family-playfair
         font-style italic
@@ -65,14 +74,19 @@ html, body
         color #fff
 
     &.content-left
+
       nav
         float right
         background blue
+        margin-right -50px
 
     &.content-right
+      border-left 1px solid black
+
       nav
         float left
         background red
+        margin-left -50px
 
 .footer
   width 100%

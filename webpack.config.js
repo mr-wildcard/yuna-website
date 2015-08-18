@@ -19,7 +19,8 @@ var config = {
         'webpack-dev-server/client?http://localhost:8080',
 
         // Our application
-        mainPath],
+        mainPath
+    ],
     output: {
 
         // We need to give Webpack a path. It does not actually need it,

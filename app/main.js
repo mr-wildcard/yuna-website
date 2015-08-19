@@ -23,3 +23,10 @@ function startApp() {
     contentBorder.insertAdjacentHTML('beforebegin', allTweets);
 }
 
+window.onload = () => {
+
+    setTimeout(() => {
+        document.querySelector("#hello").style.opacity = 0;
+        mainContentElm.style.opacity = 1;
+    }, 1000);
+};

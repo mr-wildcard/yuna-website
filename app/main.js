@@ -1,7 +1,6 @@
 import qwest from 'qwest'
 
-//var colors = [ "#343434", "#272727", "#595959", "#6D6D6D", "#626262" ]
-var colors = [ "#EFEFEF", "#F5F5F5" ]
+var colors = [ "#D9D9D9", "#E6E6E6", "#CCCCCC"];
 
 var mainContentElm = document.querySelector('#main-content');
 var contentBorder = document.querySelector('#content-border');

@@ -28,6 +28,12 @@ if (!isProduction) {
         });
     });
 
+    app.get('/tweets.php', function (req, res) {
+        proxy.web(req, res, {
+            target: 'http://yuna-orsini.com/'
+        });
+    });
+
 }
 
 // It is important to catch any errors from the proxy or the

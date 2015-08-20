@@ -10,7 +10,7 @@ var originalTweets = [],
     allLinks,
     allTweets = [];
 
-qwest.get('/tweets.json')
+qwest.get('/tweets.php')
     .then((xhr, data) => originalTweets = data)
     .then(startApp);
 

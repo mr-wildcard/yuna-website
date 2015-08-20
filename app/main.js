@@ -8,6 +8,7 @@ var contentBorder = document.querySelector('#content-border');
 
 var originalTweets = [],
     tweetText = "",
+    allLinks,
     allTweets = [];
 
 qwest.get('/tweets.json')
@@ -36,6 +37,19 @@ function startApp() {
     });
 
     contentBorder.insertAdjacentHTML('beforebegin', allTweets.join(' '));
+    allLinks = mainContentElm.querySelectorAll('span a');
+
+    if ("matchMedia" in window) {
+        if (window.matchMedia("(max-width: 35.5em)").matches) {
+            Array.prototype.forEach.call(allLinks, link => {
+                link.onclick = (e) => e.preventDefault();
+            });
+        } else {
+            Array.prototype.forEach.call(allLinks, link => {
+                link.onclick = null;
+            });
+        }
+    }
 }
 
 window.onload = () => {

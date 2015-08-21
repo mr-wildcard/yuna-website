@@ -81,6 +81,15 @@ gulp.task('inject:prod', function() {
         .pipe(gulp.dest(buildFolder));
 });
 
+gulp.task('htmlmeta:prod', function() {
+
+    return gulp.src( path.resolve(buildFolder, 'index.html') )
+        .pipe(plugins.dom(function() {
+            return this.querySelectorAll("meta[property='article:modified_time']")[0].setAttribute('content', new Date().toGMTString() );
+        }))
+        .pipe(gulp.dest(buildFolder));
+});
+
 gulp.task('clean:dist', function(nextTask) {
 
     return del([
@@ -100,6 +109,6 @@ gulp.task('copy:prod', function() {
 });
 
 gulp.task('default', ['stylus', 'watch']);
-gulp.task('build', plugins.sequence('clean:dist', 'webpack:prod', 'stylus:prod', 'copy:prod', 'inject:prod'));
+gulp.task('build', plugins.sequence('clean:dist', 'webpack:prod', 'stylus:prod', 'copy:prod', 'inject:prod'/*, 'htmlmeta:prod'*/));
 gulp.task('deploy', plugins.sequence('build', 'deploy'));
 

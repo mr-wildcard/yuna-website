@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var httpProxy = require('http-proxy');
-
+var fs = require('fs');
 var proxy = httpProxy.createProxyServer();
 var app = express();
 
@@ -29,9 +29,19 @@ if (!isProduction) {
     });
 
     app.get('/tweets.php', function (req, res) {
-        proxy.web(req, res, {
-            target: 'http://yuna-orsini.com/'
-        });
+
+        var filePath = './public/tweets.json';
+
+        if (fs.existsSync(filePath)) {
+
+            setTimeout(function() {
+                return res.json( JSON.parse( fs.readFileSync(filePath, 'utf-8') ) );
+            }, 2000)
+
+        } else
+        {
+            res.status(404).send('Sorry dude, dunno wat u meen');
+        }
     });
 
 }

@@ -10,10 +10,12 @@ var originalTweets = [],
     allLinks,
     allTweets = [];
 
-qwest.get('/tweets.php')
-    .then((xhr, data) => originalTweets = data)
-    .then(startApp);
+window.onload = () => {
 
+    qwest.get('/tweets.php')
+        .then((xhr, data) => originalTweets = data)
+        .then(startApp);
+};
 
 function startApp() {
 
@@ -49,16 +51,9 @@ function startApp() {
             });
         }
     }
-}
-
-window.onload = () => {
 
     setTimeout(() => {
         document.querySelector("#hello").style.opacity = 0;
         mainContentElm.style.opacity = 1;
     }, 2000);
-};
-
-String.prototype.splice = function( idx, rem, s ) {
-    return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
-};
+}

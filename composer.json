@@ -1,0 +1,13 @@
+{
+    "name": "jviala/yuna",
+    "authors": [
+        {
+            "name": "Julien Viala",
+            "email": "dev.vialajulien@gmail.com"
+        }
+    ],
+    "require": {
+        "contentful/contentful": "@beta",
+        "twig/twig": "~1.0"
+    }
+}
